@@ -5,3 +5,4 @@
 - settings
   - react18 RC version
   - typescript
+  - tailwindCss setup
