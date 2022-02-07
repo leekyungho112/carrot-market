@@ -23,3 +23,5 @@
   - md
   - lg
   - xl
+- tailwindCSS dark mode
+  - tailwind.config.js 파일에서 darkMode : "media" (default 컴퓨터의 모드에 따라 브라우저의 다크모드가 설정) "class" 토글버튼을 만들어 수동으로 제어가 가능하다.
