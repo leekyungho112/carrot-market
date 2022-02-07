@@ -119,8 +119,14 @@ const Home: NextPage = () => {
         </ul>
         <input
           type="file"
-          className="file:border-0 file:bg-purple-400 file:rounded-md "
+          className="file:border-0 file:cursor-wait file:hover:text-purple-500 file:hover:bg-white file:transition-colors file:bg-purple-400 file:rounded-xl file:px-5 file:text-white"
         />
+        <p className="first-letter:text-7xl first-letter:hover:text-white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+          dignissimos totam tempora velit nesciunt similique, libero obcaecati
+          non dolorem qui eligendi est, tempore ratione magni voluptatibus
+          commodi ad ut animi?
+        </p>
       </div>
     </div>
   );
