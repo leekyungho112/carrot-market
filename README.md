@@ -17,3 +17,9 @@
   Checkout
 </div>
 ```
+
+- tailwindCSS Responsive Modifier
+  - sm
+  - md
+  - lg
+  - xl
