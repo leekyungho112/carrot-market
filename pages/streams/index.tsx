@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import FloatingButton from '../../components/floatingButton';
 import Layout from '../../components/layout';
 
 const Streams: NextPage = () => {
@@ -13,7 +14,7 @@ const Streams: NextPage = () => {
             </h3>
           </div>
         ))}
-        <button className="fixed bottom-24 right-5 hover:bg-orange-600  transition-colors bg-orange-400 rounded-full shadow-xl p-4  border-transparent text-white">
+        <FloatingButton href="/streams/create">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -28,7 +29,7 @@ const Streams: NextPage = () => {
               d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
             ></path>
           </svg>
-        </button>
+        </FloatingButton>
       </div>
     </Layout>
   );
