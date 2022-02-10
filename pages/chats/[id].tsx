@@ -1,102 +1,16 @@
 import { NextPage } from 'next';
 import Layout from '../../components/layout';
+import Message from '../../components/message';
 
 const ChatDetail: NextPage = () => {
   return (
-    <Layout canGoBack>
+    <Layout canGoBack title="Steve">
       <div className="py-10 pb-16 px-4 space-y-4">
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>Hi how much are you selling the items?</p>
-          </div>
-        </div>
-        <div className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>I want $20,000</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>미쳤어?</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>Hi how much are you selling the items?</p>
-          </div>
-        </div>
-        <div className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>I want $20,000</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>미쳤어?</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>Hi how much are you selling the items?</p>
-          </div>
-        </div>
-        <div className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>I want $20,000</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>미쳤어?</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>Hi how much are you selling the items?</p>
-          </div>
-        </div>
-        <div className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>I want $20,000</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>미쳤어?</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>Hi how much are you selling the items?</p>
-          </div>
-        </div>
-        <div className="flex flex-row-reverse items-start space-x-2 space-x-reverse">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>I want $20,000</p>
-          </div>
-        </div>
-        <div className="flex items-start space-x-2">
-          <div className="h-8 w-8 rounded-full bg-slate-400" />
-          <div className="w-1/2 text-gray-700 p-2 border rounded-md border-gray-300">
-            <p>미쳤어?</p>
-          </div>
-        </div>
+        <Message message="Hi how much are you selling the items?" />
+        <Message message="I want $20,000" reversed />
+        <Message message="미쳤어?" />
 
-        <div className="fixed w-full mx-auto max-w-md bottom-2 inset-x-0">
+        <form className="fixed w-full mx-auto max-w-md bottom-2 inset-x-0">
           <div className="flex relative items-center">
             <input
               type="text"
@@ -108,7 +22,7 @@ const ChatDetail: NextPage = () => {
               </button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </Layout>
   );
