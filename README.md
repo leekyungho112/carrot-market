@@ -35,3 +35,6 @@
   - [x] 두번 혹은 반복적인 사용의 컴포넌트를 분리해서 처리
 
 ### DATABASE Setup
+
+- Prisma : Node.js와 JS or TS의 ORM(Object Relational Mapping)
+  - SQL같은 쿼리코드를 작성하지 않고 JS나 TS로 코드를 작성한다.
