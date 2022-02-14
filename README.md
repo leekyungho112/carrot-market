@@ -38,3 +38,5 @@
 
 - Prisma : Node.js와 JS or TS의 ORM(Object Relational Mapping)
   - SQL같은 쿼리코드를 작성하지 않고 JS나 TS로 코드를 작성한다.
+- PlanetScale
+  - MySQL 호환 serverless 데이터베이스 플랫폼
