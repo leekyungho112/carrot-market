@@ -115,3 +115,10 @@
     </form>
   );
   ```
+
+- React Hook Form
+  - useForm의 객체안에 내장메소드인 register를 활용하여 input에 value와 onChange, onBlur등을 대체하게 된다
+    > const { register, watch } = useForm();  
+    > <input {...register('email')} type="email" placeholder="Email" required />
+  - watch함수를 통해 form에 register함수에 입력한 이름을 key로 가지는 객체가 된다.
+    > ex){email : "dsjfksdf@fhjsd.com"}
