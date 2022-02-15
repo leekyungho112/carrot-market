@@ -50,3 +50,68 @@
 - Next.js는 자체적으로 api라우터를 만들수 있다.
 
 ---
+
+### React Hook Forms
+
+- 기존의 많은 텍스트 필드가 존재할경우
+
+  - 텍스트 필드의 state 의 증가와 validation처리를 위한 state또한 늘어나게 될것이다.
+
+  ```js
+  const [username, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [formErrors, setFormErrors] = useState('');
+  const onUsernameChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
+    const {
+      currentTarget: { value },
+    } = event;
+    setUserName(value);
+  };
+  const onEmailChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
+    const {
+      currentTarget: { value },
+    } = event;
+    setEmail(value);
+  };
+  const onPasswordChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
+    const {
+      currentTarget: { value },
+    } = event;
+    setPassword(value);
+  };
+
+  const onSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (username === '' || email === '' || password === '') {
+      setFormErrors('All fields are required');
+    }
+  };
+  return (
+    <form onSubmit={onSubmit}>
+      <input
+        type="text"
+        value={username}
+        onChange={onUsernameChange}
+        placeholder="username"
+        required
+      />
+      <input
+        type="email"
+        value={email}
+        onChange={onEmailChange}
+        placeholder="Email"
+        required
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={onPasswordChange}
+        placeholder="Password"
+        required
+      />
+      {formErrors}
+      <input type="submit" value="Create" />
+    </form>
+  );
+  ```
