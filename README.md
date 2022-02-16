@@ -122,3 +122,7 @@
     > <input {...register('email')} type="email" placeholder="Email" required />
   - watch함수를 통해 form에 register함수에 입력한 이름을 key로 가지는 객체가 된다.
     > ex){email : "dsjfksdf@fhjsd.com"}
+  - Validation
+    > const { register, handleSubmit,formState: { errors },} = useForm<LoginForm>({ mode: onChange' })
+    - formState안에 errors를 통해 validation을 핸들링이 가능하다 message를 보여준다거나...
+    - form을 제출했을때 errors 핸들링이 되는데 이때 useForm의 기본 모드가 onSubmit으로 되어있기 때문이다. mode를 변경하여 인풋값에 변화가 있을때나 다른 필드를 클릭했을때 바로 erros핸들링이 가능하다.
