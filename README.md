@@ -126,3 +126,16 @@
     > const { register, handleSubmit,formState: { errors },} = useForm<LoginForm>({ mode: onChange' })
     - formState안에 errors를 통해 validation을 핸들링이 가능하다 message를 보여준다거나...
     - form을 제출했을때 errors 핸들링이 되는데 이때 useForm의 기본 모드가 onSubmit으로 되어있기 때문이다. mode를 변경하여 인풋값에 변화가 있을때나 다른 필드를 클릭했을때 바로 erros핸들링이 가능하다.
+
+### Form submit
+
+- frontend에서 폼으로 제출하고나서 backend로 req.body를 찍어보면 정상적인 값이 들어와있는것을 볼수 있다. req.body.email로 찍어보게 되면 undefined가 나오게 된다. req.body가 req의 인코딩을 기준으로 인코딩 되기 떄문에 front에서 headers를 설정해줘야 된다.
+  - ```js
+    fetch('/api/users/enter', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    ```
