@@ -139,3 +139,7 @@
       },
     });
     ```
+
+### withHandler
+
+> Next.js에서 api router를 만들때에는 function을 export default 해야한다. return한 function이 nextjs가 실행할 함수가 된다 결국 nextjs가 실행 할 function을 return하는 function을 만드는것과 같다고 보면 된다.
