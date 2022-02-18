@@ -143,3 +143,9 @@
 ### withHandler
 
 > Next.js에서 api router를 만들때에는 function을 export default 해야한다. return한 function이 nextjs가 실행할 함수가 된다 결국 nextjs가 실행 할 function을 return하는 function을 만드는것과 같다고 보면 된다.
+
+### Log In 구현 사항
+
+- Step1
+  - [ ]phone이나 이메일로 로그인시 해당 유저가 이미 존재 하는지 없는지 판별
+  - [ ]만약 없다면 회원가입 페이지로 리다이렉트 시키고 존재한다면 db에서 정보를 가져온다.
