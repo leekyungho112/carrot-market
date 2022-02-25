@@ -15,4 +15,4 @@ async function handler(
     profile,
   });
 }
-export default withApiSession(withHandler({ method: 'GET', handler }));
+export default withApiSession(withHandler({ methods: ['GET'], handler }));
