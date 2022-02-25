@@ -21,7 +21,7 @@ const ItemDetail: NextPage = () => {
   const { data } = useSWR<ItemDetailResponse>(
     router.query.id ? `/api/products/${router.query.id}` : null
   );
-  console.log(data);
+
   return (
     <Layout canGoBack>
       {!data ? (
