@@ -5,21 +5,34 @@ import Layout from '@components/layout';
 import Textarea from '@components/textarea';
 import { useForm } from 'react-hook-form';
 import useMutation from '@libs/client/useMutation';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { Product } from '@prisma/client';
 
 interface UploadProductForm {
   name: string;
   price: string;
   description: string;
 }
+interface UploadProductMutation {
+  ok: boolean;
+  product: Product;
+}
 
 const Upload: NextPage = () => {
   const { register, handleSubmit } = useForm<UploadProductForm>();
   const [uploadProduct, { loading, data, error }] =
-    useMutation('/api/products');
+    useMutation<UploadProductMutation>('/api/products');
+  const router = useRouter();
   const onValid = (data: UploadProductForm) => {
     if (loading) return;
     uploadProduct(data);
   };
+  useEffect(() => {
+    if (data?.ok) {
+      router.push(`/products/${data.product.id}`);
+    }
+  }, [data, router]);
   return (
     <Layout canGoBack>
       <form onSubmit={handleSubmit(onValid)} className="px-4 space-y-4 ">
