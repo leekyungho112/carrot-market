@@ -3,11 +3,26 @@ import Button from '@components/button';
 import Input from '@components/input';
 import Layout from '@components/layout';
 import Textarea from '@components/textarea';
+import { useForm } from 'react-hook-form';
+import useMutation from '@libs/client/useMutation';
+
+interface UploadProductForm {
+  name: string;
+  price: string;
+  description: string;
+}
 
 const Upload: NextPage = () => {
+  const { register, handleSubmit } = useForm<UploadProductForm>();
+  const [uploadProduct, { loading, data, error }] =
+    useMutation('/api/products');
+  const onValid = (data: UploadProductForm) => {
+    if (loading) return;
+    uploadProduct(data);
+  };
   return (
     <Layout canGoBack>
-      <form className="px-4 space-y-4 ">
+      <form onSubmit={handleSubmit(onValid)} className="px-4 space-y-4 ">
         <div>
           <label className="w-full cursor-pointer flex items-center text-gray-600 hover:border-orange-500 hover:text-orange-500 justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
             <svg
@@ -28,12 +43,29 @@ const Upload: NextPage = () => {
           </label>
         </div>
 
-        <Input required label="Name" name="name" type="text" />
-        <Input required label="Price" name="price" type="text" kind="price" />
+        <Input
+          register={register('name', { required: true })}
+          required
+          label="Name"
+          name="name"
+          type="text"
+        />
+        <Input
+          register={register('price', { required: true })}
+          required
+          label="Price"
+          name="price"
+          type="text"
+          kind="price"
+        />
+        <Textarea
+          register={register('description', { required: true })}
+          name="description"
+          label="description"
+          required
+        />
 
-        <Textarea name="description" label="description" />
-
-        <Button text="Upload Item" />
+        <Button text={loading ? 'Loading...' : 'Upload Item'} />
       </form>
     </Layout>
   );
