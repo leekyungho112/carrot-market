@@ -164,5 +164,9 @@
   - swr은 HTTP 캐시 무효 전략으로 먼저 캐시로부터 데이터를 반환한 후 fetch요청을 하고, 최종적으로 최신화된 데이터를 가져온다.
 
 - Step 2
-- product Model
-- Model을 생성 -> db 수정 -> mutation후에 데이터를 가져온다.
+  - product Model
+  - Model을 생성 -> db 수정 -> mutation후에 데이터를 가져온다.
+  - Favorite Products
+    - 좋아요를 눌렀을 때 관심 목록에 데이터가 있어야 한다.
+    - 좋아요 모델을 생성하고 user와 product의 관계를 설정해준다.
+    - 로그인한 유저의 아이디와 상품 아이디를 검색 조건으로 이미 좋아요를 눌렀다면 데이터를 삭제 () 그렇지 않다면 생성해준다.
