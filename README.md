@@ -171,3 +171,5 @@
     - 좋아요 모델을 생성하고 user와 product의 관계를 설정해준다.
     - 로그인한 유저의 아이디와 상품 아이디를 검색 조건으로 이미 좋아요를 눌렀다면 데이터를 삭제 () 그렇지 않다면 생성해준다.
     - useSWR의 mutate bound함수를 사용 optimistic ui update로 백엔드 api 요청을 기다리지않고 유저에게 바로 좋아요 버튼을 표시해줄수 있다.
+  - Post Model
+    - model 생성 후 db수정 mutation 후 데이터를 가져온다.

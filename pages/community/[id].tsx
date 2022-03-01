@@ -1,7 +1,29 @@
 import { NextPage } from 'next';
 import Layout from '@components/layout';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
+import { useEffect } from 'react';
+import { Post, User } from '@prisma/client';
+
+interface PostWithUser extends Post {
+  user: User;
+}
+interface CommunityPostResponse {
+  ok: boolean;
+  post: PostWithUser;
+}
 
 const CommunityPostDetail: NextPage = () => {
+  const router = useRouter();
+  const { data, error } = useSWR<CommunityPostResponse>(
+    router.query.id ? `/api/posts/${router.query.id}` : null
+  );
+  useEffect(() => {
+    if (!data?.post) {
+      router.push('/community');
+    }
+  }, [data, router]);
+  console.log(data);
   return (
     <Layout canGoBack>
       <div>
@@ -11,7 +33,9 @@ const CommunityPostDetail: NextPage = () => {
         <div className="flex mb-3 px-4 cursor-pointer py-3  border-b items-center space-x-3">
           <div className="w-10 h-10 rounded-full bg-gray-300" />
           <div>
-            <p className="text-sm font-medium text-gray-700">Steve Jobs</p>
+            <p className="text-sm font-medium text-gray-700">
+              {data?.post?.user.name}
+            </p>
             <p className="text-xs font-semibold text-gray-500">
               View profile &rarr;
             </p>
@@ -19,8 +43,8 @@ const CommunityPostDetail: NextPage = () => {
         </div>
         <div>
           <div className="mt-2 ml-4 text-gray-700">
-            <span className="text-orange-500 font-medium">Q.</span> What is the
-            best mandu restaurant?
+            <span className="text-orange-500 font-medium">Q.</span>
+            {data?.post?.question}
           </div>
           <div className="flex  space-x-5 mt-3 text-gray-700 py-2.5 border-t border-b-[1.5px] w-full">
             <span className="flex ml-4 space-x-2 items-center text-xs">
