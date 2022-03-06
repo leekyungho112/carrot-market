@@ -40,7 +40,7 @@ async function handler(
         },
       },
     });
-
+    if (!product) res.status(404);
     res.json({
       ok: true,
       product,
