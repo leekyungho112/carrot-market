@@ -30,6 +30,7 @@ model User {
   receivedReviews Review[]    @relation(name: "receivedReviews")
   sales           Sale[]
   purchases       Purchase[]
+  record          Record[]
 }
 
 model Token {
@@ -55,6 +56,7 @@ model Product {
   favs        Fav[]
   sales       Sale[]
   purchases   Purchase[]
+  record      Record[]
 }
 
 model Post {
@@ -131,4 +133,21 @@ model Fav {
   productId Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Record {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+  createdAt DateTime @default(now())
+  kind      Kind
+  updatedAt DateTime @updatedAt
+}
+
+enum Kind {
+  Purchase
+  Sale
+  Fav
 }

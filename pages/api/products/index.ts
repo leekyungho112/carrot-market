@@ -10,9 +10,9 @@ async function handler(
   if (req.method === 'GET') {
     const products = await client.product.findMany({
       include: {
-        _count: {
-          select: {
-            favs: true,
+        record: {
+          where: {
+            kind: 'Fav',
           },
         },
       },
