@@ -27,7 +27,7 @@ async function handler(
       sales,
     });
   }
-  if (kind === 'bought') {
+  if (kind === 'purchases') {
     const purchases = await client.record.findMany({
       where: {
         userId: user?.id,
