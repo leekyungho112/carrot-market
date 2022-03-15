@@ -6,7 +6,6 @@ import { ProductWithCount } from 'pages';
 import { Product } from '@prisma/client';
 
 const Loved: NextPage = () => {
-  console.log(data);
   return (
     <Layout title="관심목록" canGoBack>
       <div className="flex flex-col space-y-5 pb-10 divide-y"></div>
