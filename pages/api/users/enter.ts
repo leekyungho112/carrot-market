@@ -49,45 +49,46 @@ async function handler(
     // });
     // console.log(email);
   }
+
   return res.json({
     ok: true,
   });
-  /* if (email) {
-    user = await client.user.findUnique({
-      where: {
-        email,
-      },
-    });
-    if (user) console.log('존재하는 유저입니다.');
-    if (!user) {
-      console.log('유저를 찾을수 없습니다.');
-      user = await client.user.create({
-        data: {
-          name: 'Anony',
-          email,
-        },
-      });
-    }
-    console.log(user);
-  }
-  if (phone) {
-    user = await client.user.findUnique({
-      where: {
-        phone: +phone,
-      },
-    });
-    if (user) console.log('존재하는 유저입니다.');
-    if (!user) {
-      console.log('유저를 찾을수 없습니다.');
-      user = await client.user.create({
-        data: {
-          name: 'Anony',
-          phone: +phone,
-        },
-      });
-    }
-    console.log(user);
-  } */
+  // if (email) {
+  //   user = await client.user.findUnique({
+  //     where: {
+  //       email,
+  //     },
+  //   });
+  //   if (user) console.log('존재하는 유저입니다.');
+  //   if (!user) {
+  //     console.log('유저를 찾을수 없습니다.');
+  //     user = await client.user.create({
+  //       data: {
+  //         name: 'Anony',
+  //         email,
+  //       },
+  //     });
+  //   }
+  //   console.log(user);
+  // }
+  // if (phone) {
+  //   user = await client.user.findUnique({
+  //     where: {
+  //       phone: +phone,
+  //     },
+  //   });
+  //   if (user) console.log('존재하는 유저입니다.');
+  //   if (!user) {
+  //     console.log('유저를 찾을수 없습니다.');
+  //     user = await client.user.create({
+  //       data: {
+  //         name: 'Anony',
+  //         phone: +phone,
+  //       },
+  //     });
+  //   }
+  //   console.log(user);
+  // }
 }
 
 export default withHandler({ methods: ['POST'], handler, isPrivate: false });

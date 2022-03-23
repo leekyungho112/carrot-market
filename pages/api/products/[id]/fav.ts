@@ -43,7 +43,20 @@ async function handler(
       },
     });
   }
-
+  const fav = await client.record.count({
+    where: {
+      productId: +id.toString(),
+      kind: 'Fav',
+    },
+  });
+  await client.product.update({
+    where: {
+      id: +id.toString(),
+    },
+    data: {
+      favCount: fav,
+    },
+  });
   res.json({
     ok: true,
   });

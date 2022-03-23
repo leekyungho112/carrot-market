@@ -6,13 +6,13 @@ import useUser from '@libs/client/useUser';
 import useSWR from 'swr';
 import { Product, Record } from '@prisma/client';
 
-export interface ProductWithCount extends Product {
-  record: Record[];
-}
+// export interface ProductWithCount extends Product {
+//   record: Record[];
+// }
 
 interface ProductsResponse {
   ok: boolean;
-  products: ProductWithCount[];
+  products: Product[];
 }
 
 const Home: NextPage = () => {
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
             title={product.name}
             price={product.price}
             comments={1}
-            hearts={product?.record?.length}
+            hearts={product.favCount}
           />
         ))}
         <FloatingButton href="/products/upload">
