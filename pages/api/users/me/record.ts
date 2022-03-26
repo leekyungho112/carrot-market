@@ -12,7 +12,7 @@ async function handler(
     query: { kind },
   } = req;
   console.log(kind);
-  if (kind === 'sold') {
+  if (kind === 'sales') {
     const sales = await client.record.findMany({
       where: {
         userId: user?.id,
@@ -42,7 +42,7 @@ async function handler(
       purchases,
     });
   }
-  if (kind === 'loved') {
+  if (kind === 'favs') {
     const favs = await client.record.findMany({
       where: {
         userId: user?.id,

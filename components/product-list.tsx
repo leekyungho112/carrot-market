@@ -1,4 +1,4 @@
-import { ProductWithCount } from 'pages';
+import { Product } from '@prisma/client';
 import useSWR from 'swr';
 import Item from './item';
 
@@ -8,7 +8,7 @@ interface ProductListProps {
 
 interface Record {
   id: number;
-  product: ProductWithCount;
+  product: Product;
 }
 
 interface ProductListResponse {
@@ -27,8 +27,8 @@ export default function ProductList({ kind }: ProductListProps) {
           key={record.id}
           title={record.product.name}
           price={record.product.price}
-          hearts={record.product.record?.length}
-          comments={record.product.record?.length}
+          hearts={record.product.favCount}
+          comments={1}
         />
       ))}
     </>
