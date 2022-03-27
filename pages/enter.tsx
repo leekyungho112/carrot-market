@@ -17,6 +17,7 @@ interface TokenForm {
 interface MutationResult {
   ok: boolean;
 }
+
 export default function Enter() {
   const [enter, { loading, data, error }] =
     useMutation<MutationResult>('/api/users/enter');
